@@ -1,10 +1,14 @@
 package org.interviewprep.datastructures.ArrayList;
 
+import lombok.Getter;
+
 public class ArrayList<T> {
     private static final int MAX_ARRAY_CAPACITY = Integer.MAX_VALUE - 8;
     private Holder<T>[] holder;
+    @Getter
     private int capacity;
     private int elementCount;
+
 
     ArrayList(int initialCapacity) {
         this.capacity = (initialCapacity == 0) ? 1 : initialCapacity;
@@ -12,6 +16,9 @@ public class ArrayList<T> {
         this.elementCount = 0;
     }
 
+    public int size() {
+        return this.elementCount;
+    }
     // O(1) amortized
     public void add(T item) {
         if(item == null) {
@@ -22,20 +29,32 @@ public class ArrayList<T> {
             resize();
         }
 
-        this.holder[this.elementCount] = new Holder<>(item);
+        this.holder[this.elementCount++] = new Holder<>(item);
     }
 
     // O(1)
     public T get(int index) {
-        if(index < 0 || index >= this.elementCount) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        checkIndexOutOfBound(index, this.elementCount);
 
         return this.holder[index].item();
     }
 
+    public void set(int index, T value) {
+        checkIndexOutOfBound(index, this.elementCount);
+
+        this.holder[index] = new Holder<>(value);
+    }
+
+    private void checkIndexOutOfBound(int index, int capacity) {
+        if (index < 0 || index >= capacity) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+    }
+
     // O(n)
     public void remove(int index) {
+        checkIndexOutOfBound(index, this.elementCount);
+
         // shift the remaining array left starting from index 'index'
         for(int i = index; i < this.elementCount - 1; i++) {
             this.holder[i] = this.holder[i+1];
