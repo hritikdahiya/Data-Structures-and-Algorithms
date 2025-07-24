@@ -1,4 +1,4 @@
-package org.interviewprep.datastructures.LL;
+package com.interviewprep.datastructures.LL;
 
 import lombok.Getter;
 import lombok.Setter;

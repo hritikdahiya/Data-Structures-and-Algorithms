@@ -1,4 +1,4 @@
-package org.interviewprep.datastructures.ArrayList;
+package com.interviewprep.datastructures.ArrayList;
 
 import org.junit.jupiter.api.*;
 

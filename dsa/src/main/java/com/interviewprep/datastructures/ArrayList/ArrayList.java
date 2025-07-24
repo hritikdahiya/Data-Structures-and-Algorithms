@@ -1,4 +1,4 @@
-package org.interviewprep.datastructures.ArrayList;
+package com.interviewprep.datastructures.ArrayList;
 
 import lombok.Getter;
 
@@ -77,7 +77,6 @@ public class ArrayList<T> {
         this.holder = resizedHolder;
         this.capacity = newCapacity;
     }
-
 }
 
 record Holder<T>(T item) { }
