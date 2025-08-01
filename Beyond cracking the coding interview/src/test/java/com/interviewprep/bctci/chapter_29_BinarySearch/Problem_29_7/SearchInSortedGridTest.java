@@ -18,6 +18,9 @@ class SearchInSortedGridTest {
 
         Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, -1));
         Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 5));
+
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, -1));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 5));
     }
 
     @Test
@@ -39,6 +42,8 @@ class SearchInSortedGridTest {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 Assertions.assertArrayEquals(new int[]{i, j}, obj.findElementInGrid(grid, grid[i][j]));
+
+                Assertions.assertArrayEquals(new int[]{i, j}, obj.findElementInFlattenedGrid(grid, grid[i][j]));
             }
         }
     }
@@ -61,9 +66,12 @@ class SearchInSortedGridTest {
 
         // couldn't find in 1st row
         Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 4));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 4));
         // couldn't find in 2nd row
         Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 8));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 8));
         // couldn't find in 3rd row
         Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 16));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 16));
     }
 }
