@@ -1,20 +1,20 @@
 package com.interviewprep.bctci.chapter_27_TwoPointers.Problem_27_5;
 
 public class ReverseCaseMatch {
-    public static boolean isPalindrome(String s) {
+    public static boolean doesReverseCaseMatch(String s) {
         int n = s.length();
-        if (n < 2) {
+        if (n < 1) {
             return true;
         }
 
         int l = 0, r = n - 1;
-        while (l < r) {
-            if (!Character.isLetterOrDigit(s.charAt(l))) {
+        while (l < n && r > -1) {
+            if (!Character.isLowerCase(s.charAt(l))) {
                 l++;
-            } else if (!Character.isLetterOrDigit(s.charAt(r))) {
+            } else if (!Character.isUpperCase(s.charAt(r))) {
                 r--;
             } else {
-                if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) {
+                if (Character.toLowerCase(s.charAt(r)) != s.charAt(l)) {
                     return false;
                 }
                 l++;
@@ -22,6 +22,7 @@ public class ReverseCaseMatch {
             }
         }
 
-        return true;
+        // In case of all lowercase and all uppercase letters (), return false
+        return !(l == 0 || r == n - 1);
     }
 }

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 class CCTVFootageTest {
     @Test
     public void findTransitionPointTest() {
-        var cctvFootage = new CCTVFootage();
         int t1 = 0, t2 = 20, transitionPoint = 15;
 
         // API implementation per test case
@@ -22,8 +21,6 @@ class CCTVFootageTest {
 
     @Test()
     public void deckCutTest() {
-        var cctvFootage = new CCTVFootage();
-
         int[] indicesOf1 = new int[52];
         for(int i=0; i < 52; i++)
             indicesOf1[i] = i+1;
