@@ -19,13 +19,14 @@ public class ArrayList<T> {
     public int size() {
         return this.elementCount;
     }
+
     // O(1) amortized
     public void add(T item) {
-        if(item == null) {
+        if (item == null) {
             throw new NullPointerException();
         }
 
-        if(this.elementCount == this.capacity) {
+        if (this.elementCount == this.capacity) {
             resize();
         }
 
@@ -56,15 +57,15 @@ public class ArrayList<T> {
         checkIndexOutOfBound(index, this.elementCount);
 
         // shift the remaining array left starting from index 'index'
-        for(int i = index; i < this.elementCount - 1; i++) {
-            this.holder[i] = this.holder[i+1];
+        for (int i = index; i < this.elementCount - 1; i++) {
+            this.holder[i] = this.holder[i + 1];
         }
         // reduce the size of array, it will be overwritten in the next add
         this.elementCount--;
     }
 
     protected void resize() {
-        if(this.capacity == MAX_ARRAY_CAPACITY) {
+        if (this.capacity == MAX_ARRAY_CAPACITY) {
             throw new OutOfMemoryError();
         }
 
@@ -79,4 +80,5 @@ public class ArrayList<T> {
     }
 }
 
-record Holder<T>(T item) { }
+record Holder<T>(T item) {
+}
