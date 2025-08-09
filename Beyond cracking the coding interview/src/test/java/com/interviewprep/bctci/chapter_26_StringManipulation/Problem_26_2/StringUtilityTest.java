@@ -6,18 +6,16 @@ import org.junit.jupiter.api.Test;
 class StringUtilityTest {
     @Test
     public void joinStringTest() {
-        StringUtility stringUtility = new StringUtility();
-
         // Empty array
-        Assertions.assertEquals("", stringUtility.join(new String[]{}, ""));
+        Assertions.assertEquals("", StringUtility.join(new String[]{}, ""));
 
         // Empty joiner string
-        Assertions.assertEquals("FirstSecond", stringUtility.join(new String[]{"First", "Second"}, ""));
+        Assertions.assertEquals("FirstSecond", StringUtility.join(new String[]{"First", "Second"}, ""));
 
         // Single element in array
-        Assertions.assertEquals("First", stringUtility.join(new String[]{"First"}, "longString"));
+        Assertions.assertEquals("First", StringUtility.join(new String[]{"First"}, "longString"));
 
         //  Normal test case
-        Assertions.assertEquals("beeeekeeeepeer neeeedeed!!", stringUtility.join(new String[] { "b", "", "k", "", "p", "r n", "", "d", "d!!" }, "ee"));
+        Assertions.assertEquals("beeeekeeeepeer neeeedeed!!", StringUtility.join(new String[]{"b", "", "k", "", "p", "r n", "", "d", "d!!"}, "ee"));
     }
 }

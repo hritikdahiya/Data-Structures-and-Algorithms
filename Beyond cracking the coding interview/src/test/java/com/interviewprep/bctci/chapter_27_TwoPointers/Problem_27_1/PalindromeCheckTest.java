@@ -6,20 +6,18 @@ import org.junit.jupiter.api.Test;
 class PalindromeCheckTest {
     @Test
     public void palindromeCheckTest() {
-        PalindromeCheck pc = new PalindromeCheck();
-
         // empty string
-        Assertions.assertTrue(pc.isPalindrome(""));
+        Assertions.assertTrue(PalindromeCheck.isPalindrome(""));
 
         // single character string
-        Assertions.assertTrue(pc.isPalindrome("1"));
+        Assertions.assertTrue(PalindromeCheck.isPalindrome("1"));
 
         // odd length string
-        Assertions.assertTrue(pc.isPalindrome("level"));
-        Assertions.assertFalse(pc.isPalindrome("hello"));
+        Assertions.assertTrue(PalindromeCheck.isPalindrome("level"));
+        Assertions.assertFalse(PalindromeCheck.isPalindrome("hello"));
 
         // even length string
-        Assertions.assertTrue(pc.isPalindrome("naan"));
-        Assertions.assertFalse(pc.isPalindrome("tester"));
+        Assertions.assertTrue(PalindromeCheck.isPalindrome("naan"));
+        Assertions.assertFalse(PalindromeCheck.isPalindrome("tester"));
     }
 }

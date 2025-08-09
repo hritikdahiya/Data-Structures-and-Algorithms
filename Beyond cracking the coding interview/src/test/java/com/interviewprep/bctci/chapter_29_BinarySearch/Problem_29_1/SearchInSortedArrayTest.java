@@ -6,16 +6,14 @@ import org.junit.jupiter.api.Test;
 class SearchInSortedArrayTest {
     @Test
     public void elementPresentInArrayReturnsIndexTest() {
-        SearchInSortedArray<Integer> searchInSortedArray = new SearchInSortedArray<>();
-        int result = searchInSortedArray.searchElementInSortedArray(new Integer[]{-2, 0, 3, 4, 7, 9, 11}, 3);
+        int result = SearchInSortedArray.searchElementInSortedArray(new Integer[]{-2, 0, 3, 4, 7, 9, 11}, 3);
 
         Assertions.assertEquals(2, result);
     }
 
     @Test
     public void elementNotPresentInArrayReturnsNegative1Test() {
-        SearchInSortedArray<Integer> searchInSortedArray = new SearchInSortedArray<>();
-        int result = searchInSortedArray.searchElementInSortedArray(new Integer[]{-2, 0, 3, 4, 7, 9, 11}, 2);
+        int result = SearchInSortedArray.searchElementInSortedArray(new Integer[]{-2, 0, 3, 4, 7, 9, 11}, 2);
 
         Assertions.assertEquals(-1, result);
     }

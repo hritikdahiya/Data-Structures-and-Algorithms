@@ -2,7 +2,7 @@ package com.interviewprep.bctci.chapter_29_BinarySearch.Problem_29_3;
 
 public class ValleyBottom {
     // Binary Search solution with Transition Point
-    public int findValleyBottom(int[] arr) {
+    public static int findValleyBottom(int[] arr) {
         if (arr.length < 2) {
             // For a non-empty desc prefix array and non-empty asc suffix to exist, there must be 2 elements present
             throw new IllegalArgumentException();
@@ -33,7 +33,7 @@ public class ValleyBottom {
     }
 
     // Is the current element greater than it's previous element i.e. in the desc prefix
-    private boolean isBefore(int[] arr, int index) {
+    private static boolean isBefore(int[] arr, int index) {
         return arr[index] < arr[index - 1];
     }
 }

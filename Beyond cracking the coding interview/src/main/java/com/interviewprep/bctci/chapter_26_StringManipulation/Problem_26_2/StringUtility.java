@@ -1,7 +1,7 @@
 package com.interviewprep.bctci.chapter_26_StringManipulation.Problem_26_2;
 
 public class StringUtility {
-    public String join(String[] arr, String s) {
+    public static String join(String[] arr, String s) {
         if (arr == null || arr.length == 0) {
             return "";
         }
@@ -20,7 +20,7 @@ public class StringUtility {
         return result.toString();
     }
 
-    private boolean isStringEmpty(String s) {
+    private static boolean isStringEmpty(String s) {
         return s == null || s.isEmpty();
     }
 }

@@ -8,25 +8,21 @@ class SearchInSortedGridTest {
 
     @Test
     public void targetIsOutsideRange() {
-        SearchInSortedGrid obj = new SearchInSortedGrid();
-
         int[][] grid = new int[2][2];
         grid[0][0] = 1;
         grid[0][1] = 2;
         grid[1][0] = 3;
         grid[1][1] = 4;
 
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, -1));
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 5));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInGrid(grid, -1));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInGrid(grid, 5));
 
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, -1));
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 5));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInFlattenedGrid(grid, -1));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInFlattenedGrid(grid, 5));
     }
 
     @Test
     public void targetWithinRangeExists() {
-        SearchInSortedGrid obj = new SearchInSortedGrid();
-
         int[][] grid = new int[3][3];
         grid[0][0] = 1;
         grid[0][1] = 3;
@@ -41,17 +37,15 @@ class SearchInSortedGridTest {
         // assert every item
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                Assertions.assertArrayEquals(new int[]{i, j}, obj.findElementInGrid(grid, grid[i][j]));
+                Assertions.assertArrayEquals(new int[]{i, j}, SearchInSortedGrid.findElementInGrid(grid, grid[i][j]));
 
-                Assertions.assertArrayEquals(new int[]{i, j}, obj.findElementInFlattenedGrid(grid, grid[i][j]));
+                Assertions.assertArrayEquals(new int[]{i, j}, SearchInSortedGrid.findElementInFlattenedGrid(grid, grid[i][j]));
             }
         }
     }
 
     @Test
     public void targetWithinRangeDoesNotExists() {
-        SearchInSortedGrid obj = new SearchInSortedGrid();
-
         int[][] grid = new int[3][3];
         grid[0][0] = 1;
         grid[0][1] = 3;
@@ -65,13 +59,13 @@ class SearchInSortedGridTest {
 
 
         // couldn't find in 1st row
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 4));
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 4));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInGrid(grid, 4));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInFlattenedGrid(grid, 4));
         // couldn't find in 2nd row
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 8));
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 8));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInGrid(grid, 8));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInFlattenedGrid(grid, 8));
         // couldn't find in 3rd row
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInGrid(grid, 16));
-        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, obj.findElementInFlattenedGrid(grid, 16));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInGrid(grid, 16));
+        Assertions.assertArrayEquals(ELE_NOT_FOUND_OUTPUT, SearchInSortedGrid.findElementInFlattenedGrid(grid, 16));
     }
 }

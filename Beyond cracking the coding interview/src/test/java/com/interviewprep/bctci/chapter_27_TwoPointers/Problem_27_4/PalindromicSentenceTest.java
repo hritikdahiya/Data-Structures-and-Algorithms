@@ -6,20 +6,18 @@ import org.junit.jupiter.api.Test;
 class PalindromicSentenceTest {
     @Test
     public void palindromicSentenceTest() {
-        PalindromicSentence ps = new PalindromicSentence();
-
         // Empty string
-        Assertions.assertTrue(ps.isPalindrome(""));
+        Assertions.assertTrue(PalindromicSentence.isPalindrome(""));
 
         // String with no alphanumeric ~ empty string
-        Assertions.assertTrue(ps.isPalindrome("! @ # $ % ^ % $ # @ !"));
+        Assertions.assertTrue(PalindromicSentence.isPalindrome("! @ # $ % ^ % $ # @ !"));
 
         // Palindrome
-        Assertions.assertTrue(ps.isPalindrome("Bob wondered, 'Now, Bob?'"));
+        Assertions.assertTrue(PalindromicSentence.isPalindrome("Bob wondered, 'Now, Bob?'"));
         // Palindrome with numbers
-        Assertions.assertTrue(ps.isPalindrome("r1a2c - 3e3 ` c2a1 $ r"));
+        Assertions.assertTrue(PalindromicSentence.isPalindrome("r1a2c - 3e3 ` c2a1 $ r"));
 
         // Not a palindrome
-        Assertions.assertFalse(ps.isPalindrome("race a car"));
+        Assertions.assertFalse(PalindromicSentence.isPalindrome("race a car"));
     }
 }

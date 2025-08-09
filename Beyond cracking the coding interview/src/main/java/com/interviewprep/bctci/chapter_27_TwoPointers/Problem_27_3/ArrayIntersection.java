@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayIntersection {
-    public Integer[] findArrayIntersection(int[] arr1, int[] arr2) {
+    public static Integer[] findArrayIntersection(int[] arr1, int[] arr2) {
         int n1 = arr1.length;
         int n2 = arr2.length;
         if (n1 == 0 || n2 == 0) {

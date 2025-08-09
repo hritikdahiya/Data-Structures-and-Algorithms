@@ -5,7 +5,7 @@ public class SearchInSortedGrid {
     
     // Solution which assumes the grid to be flattened
     // Easier implementation
-    public int[] findElementInFlattenedGrid(int[][] grid, int target) {
+    public static int[] findElementInFlattenedGrid(int[][] grid, int target) {
         int n = grid.length;
         // Edge cases - when the element does not exist FOR SURE
         if (n == 0) {
@@ -40,7 +40,7 @@ public class SearchInSortedGrid {
         return (grid[row][col] == target) ? new int[]{row, col} : ELE_NOT_FOUND_OUTPUT;
     }
 
-    public int[] findElementInGrid(int[][] grid, int target) {
+    public static int[] findElementInGrid(int[][] grid, int target) {
         int n = grid.length;
         // Edge cases - when the element does not exist FOR SURE
         if (n == 0) {

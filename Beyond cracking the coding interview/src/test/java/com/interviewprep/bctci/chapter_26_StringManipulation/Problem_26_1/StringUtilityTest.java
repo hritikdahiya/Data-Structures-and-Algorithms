@@ -6,22 +6,20 @@ import org.junit.jupiter.api.Test;
 class StringUtilityTest {
     @Test
     public void testStringSplit() {
-        StringUtility obj = new StringUtility();
-
         // Empty string
-        Assertions.assertArrayEquals(new String[]{}, obj.split("", ' '));
+        Assertions.assertArrayEquals(new String[]{}, StringUtility.split("", ' '));
 
         // Single character string
-        Assertions.assertArrayEquals(new String[]{"", ""}, obj.split("a", 'a'));
-        Assertions.assertArrayEquals(new String[]{"a"}, obj.split("a", 'z'));
+        Assertions.assertArrayEquals(new String[]{"", ""}, StringUtility.split("a", 'a'));
+        Assertions.assertArrayEquals(new String[]{"a"}, StringUtility.split("a", 'z'));
 
         // Char doesn't exist - no split
-        Assertions.assertArrayEquals(new String[]{"Complete String"}, obj.split("Complete String", 'a'));
+        Assertions.assertArrayEquals(new String[]{"Complete String"}, StringUtility.split("Complete String", 'a'));
 
         // Character at beginning, consecutive characters and character at end
-        Assertions.assertArrayEquals(new String[]{"", "hello", "", "", "world", ""}, obj.split(" hello   world ", ' '));
+        Assertions.assertArrayEquals(new String[]{"", "hello", "", "", "world", ""}, StringUtility.split(" hello   world ", ' '));
 
         // All character same
-        Assertions.assertArrayEquals(new String[]{"", "", "", "", ""}, obj.split("aaaa", 'a'));
+        Assertions.assertArrayEquals(new String[]{"", "", "", "", ""}, StringUtility.split("aaaa", 'a'));
     }
 }

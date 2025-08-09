@@ -8,7 +8,7 @@ public class CCTVFootage {
     // using int timestamps for the sake of the problem
     // The API object method is passed for testing convenience, ideally is would be an external object.
     // Returns Integer.MIN_VALUE for invalid cases
-    public int findTransitionPoint(final int t1, final int t2, API api) {
+    public static int findTransitionPoint(final int t1, final int t2, API api) {
         // Enforce assumption that t1 < t2 && is_stolen(t1) == false && is_stolen(t2) == true
         if (t1 >= t2 || api.is_stolen(t1) || !api.is_stolen(t2)) {
             return Integer.MIN_VALUE;
@@ -33,7 +33,7 @@ public class CCTVFootage {
     }
 
     // Deck cut variation problem
-    public int findDeckCutIndex(int[] deck) {
+    public static int findDeckCutIndex(int[] deck) {
         // Assumption - deck is 52 len.
 
         // Edge case [1,2,.....51,52] - when the deck is already sorted

@@ -1,6 +1,6 @@
-package com.interviewprep.bctci.chapter_27_TwoPointers.Problem_27_4;
+package com.interviewprep.bctci.chapter_27_TwoPointers.Problem_27_5;
 
-public class PalindromicSentence {
+public class ReverseCaseMatch {
     public static boolean isPalindrome(String s) {
         int n = s.length();
         if (n < 2) {

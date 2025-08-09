@@ -1,7 +1,7 @@
 package com.interviewprep.bctci.chapter_27_TwoPointers.Problem_27_2;
 
 public class SmallerPrefixes {
-    public boolean smallerPrefixSpaceOptimized(int[] arr) {
+    public static boolean smallerPrefixSpaceOptimized(int[] arr) {
         int n = arr.length;
         if (n == 0) {
             return false;
@@ -27,7 +27,7 @@ public class SmallerPrefixes {
         return true;
     }
 
-    public boolean smallerPrefix(int[] arr) {
+    public static boolean smallerPrefix(int[] arr) {
         // Basic solution which precomputes prefix sum array with O(n) extra space
         int n = arr.length;
         if (n == 0) {

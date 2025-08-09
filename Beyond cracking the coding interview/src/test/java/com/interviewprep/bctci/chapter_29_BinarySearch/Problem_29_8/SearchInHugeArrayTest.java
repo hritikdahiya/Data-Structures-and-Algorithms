@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 class SearchInHugeArrayTest {
     @Test
     public void searchInHugeArrayTest() {
-        SearchInHugeArray obj = new SearchInHugeArray();
-
         // test array - size - 100 * Integer.MAX_VALUE
         // Every element is repeated 5 times
         // 1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,....
@@ -23,7 +21,7 @@ class SearchInHugeArrayTest {
         };
         long target = 229836L;
 
-        Assertions.assertEquals((target - 1) * 5, obj.findElementInArray(fetchApi, target));
+        Assertions.assertEquals((target - 1) * 5, SearchInHugeArray.findElementInArray(fetchApi, target));
     }
 }
 

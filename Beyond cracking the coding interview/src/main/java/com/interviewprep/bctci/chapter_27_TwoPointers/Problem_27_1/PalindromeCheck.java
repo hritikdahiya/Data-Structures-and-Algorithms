@@ -1,7 +1,7 @@
 package com.interviewprep.bctci.chapter_27_TwoPointers.Problem_27_1;
 
 public class PalindromeCheck {
-    public boolean isPalindrome(String s) {
+    public static boolean isPalindrome(String s) {
         if (s.length() < 2) {
             return true;
         }

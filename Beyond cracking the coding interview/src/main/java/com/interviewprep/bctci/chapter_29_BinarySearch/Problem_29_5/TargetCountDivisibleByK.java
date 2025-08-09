@@ -2,7 +2,7 @@ package com.interviewprep.bctci.chapter_29_BinarySearch.Problem_29_5;
 
 public class TargetCountDivisibleByK {
 
-    public boolean findTargetCountDivisibleByK(int[] sorted_arr, int target, int K) {
+    public static boolean findTargetCountDivisibleByK(int[] sorted_arr, int target, int K) {
         if (sorted_arr.length == 0) {
             return true;
         }
@@ -18,7 +18,7 @@ public class TargetCountDivisibleByK {
         return elementCount % K == 0;
     }
 
-    private int findFirstOccurrenceOfElement(int[] sorted_arr, int ele) {
+    private static int findFirstOccurrenceOfElement(int[] sorted_arr, int ele) {
         // Transition point: index where elements 'before' TP are smaller than x
         int s = 0, e = sorted_arr.length - 1;
         if(ele < sorted_arr[0] || ele > sorted_arr[e]) {
@@ -46,7 +46,7 @@ public class TargetCountDivisibleByK {
         return sorted_arr[e] == ele ? e : -1;
     }
 
-    private int findLastOccurrenceOfElement(int[] sorted_arr, int ele) {
+    private static int findLastOccurrenceOfElement(int[] sorted_arr, int ele) {
         // Transition point: index where elements 'before' TP are smaller than ele + 1
         int s = 0, e = sorted_arr.length - 1;
         if(ele < sorted_arr[0] || ele > sorted_arr[e]) {

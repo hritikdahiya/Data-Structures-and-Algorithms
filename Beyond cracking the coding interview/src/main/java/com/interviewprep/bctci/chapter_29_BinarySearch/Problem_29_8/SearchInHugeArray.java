@@ -4,7 +4,7 @@ interface API {
     long fetch(long index);
 }
 public class SearchInHugeArray {
-    public long findElementInArray(API api, long target) {
+    public static long findElementInArray(API api, long target) {
         long s = 0, e = 1;
         // find the length of the array (or at least slightly larger than actual length of array)
         while(api.fetch(e) != -1) {

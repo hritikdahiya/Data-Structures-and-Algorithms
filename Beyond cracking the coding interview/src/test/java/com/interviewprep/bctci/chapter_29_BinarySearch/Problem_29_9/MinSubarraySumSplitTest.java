@@ -8,28 +8,25 @@ import java.util.Arrays;
 class MinSubarraySumSplitTest {
     @Test
     public void minimumSubArraySumSplitTest() {
-        MinSubarraySumSplit obj = new MinSubarraySumSplit();
         int[] arr = new int[]{10, 5, 8, 9, 11};
         int k = 3;
 
-        Assertions.assertEquals(17, obj.findMinSubarraySplit(arr, k));
+        Assertions.assertEquals(17, MinSubarraySumSplit.findMinSubarraySplit(arr, k));
     }
 
 
     @Test
     public void minimumSubArraySumSplitEdgeCaseTest() {
-        MinSubarraySumSplit obj = new MinSubarraySumSplit();
-
         int[] arr = new int[]{10, 5, 8, 9, 11};
 
         // k = 1;
-        Assertions.assertEquals(Arrays.stream(arr).sum(), obj.findMinSubarraySplit(arr, 1));
+        Assertions.assertEquals(Arrays.stream(arr).sum(), MinSubarraySumSplit.findMinSubarraySplit(arr, 1));
 
         // k = n;
-        Assertions.assertEquals(Arrays.stream(arr).max().getAsInt(), obj.findMinSubarraySplit(arr, arr.length));
+        Assertions.assertEquals(Arrays.stream(arr).max().getAsInt(), MinSubarraySumSplit.findMinSubarraySplit(arr, arr.length));
 
         // n = 1;
-        Assertions.assertEquals(10, obj.findMinSubarraySplit(new int[]{10}, 1));
+        Assertions.assertEquals(10, MinSubarraySumSplit.findMinSubarraySplit(new int[]{10}, 1));
 
     }
 }

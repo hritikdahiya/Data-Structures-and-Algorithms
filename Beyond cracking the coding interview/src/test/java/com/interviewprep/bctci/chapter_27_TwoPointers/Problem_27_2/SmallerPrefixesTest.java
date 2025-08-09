@@ -8,50 +8,48 @@ import java.util.Arrays;
 class SmallerPrefixesTest {
     @Test
     public void smallerPrefixTest() {
-        SmallerPrefixes sp = new SmallerPrefixes();
         // Empty array
-        Assertions.assertFalse(sp.smallerPrefix(new int[]{}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefix(new int[]{}));
 
         // Odd length throws exception for invalid input
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sp.smallerPrefix(new int[]{1, 2, 3}));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SmallerPrefixes.smallerPrefix(new int[]{1, 2, 3}));
 
         // Normal test case
-        Assertions.assertTrue(sp.smallerPrefix(new int[]{1, 2, 2, -1}));
-        Assertions.assertFalse(sp.smallerPrefix(new int[]{1, 2, -2, 1, 3, 5}));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefix(new int[]{1, 2, 2, -1}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefix(new int[]{1, 2, -2, 1, 3, 5}));
 
         // Increasing sequence with positive ints
-        Assertions.assertTrue(sp.smallerPrefix(new int[]{0, 1, 2, 3, 4, 5, 6, 7}));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefix(new int[]{0, 1, 2, 3, 4, 5, 6, 7}));
         // negative ints
-        Assertions.assertFalse(sp.smallerPrefix(new int[]{-6, -5, -4, -3, -2, -1}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefix(new int[]{-6, -5, -4, -3, -2, -1}));
 
         // large numbers - to test overflow
         int[] largeNumArray = new int[10000];
         Arrays.fill(largeNumArray, Integer.MAX_VALUE);
-        Assertions.assertTrue(sp.smallerPrefix(largeNumArray));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefix(largeNumArray));
     }
 
 
     @Test
     public void smallerPrefixSpaceOptimizedTest() {
-        SmallerPrefixes sp = new SmallerPrefixes();
         // Empty array
-        Assertions.assertFalse(sp.smallerPrefixSpaceOptimized(new int[]{}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{}));
 
         // Odd length throws exception for invalid input
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sp.smallerPrefixSpaceOptimized(new int[]{1, 2, 3}));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{1, 2, 3}));
 
         // Normal test case
-        Assertions.assertTrue(sp.smallerPrefixSpaceOptimized(new int[]{1, 2, 2, -1}));
-        Assertions.assertFalse(sp.smallerPrefixSpaceOptimized(new int[]{1, 2, -2, 1, 3, 5}));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{1, 2, 2, -1}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{1, 2, -2, 1, 3, 5}));
 
         // Increasing sequence with positive ints
-        Assertions.assertTrue(sp.smallerPrefixSpaceOptimized(new int[]{0, 1, 2, 3, 4, 5, 6, 7}));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{0, 1, 2, 3, 4, 5, 6, 7}));
         // negative ints
-        Assertions.assertFalse(sp.smallerPrefixSpaceOptimized(new int[]{-6, -5, -4, -3, -2, -1}));
+        Assertions.assertFalse(SmallerPrefixes.smallerPrefixSpaceOptimized(new int[]{-6, -5, -4, -3, -2, -1}));
 
         // large numbers - to test overflow
         int[] largeNumArray = new int[10000];
         Arrays.fill(largeNumArray, Integer.MAX_VALUE);
-        Assertions.assertTrue(sp.smallerPrefix(largeNumArray));
+        Assertions.assertTrue(SmallerPrefixes.smallerPrefix(largeNumArray));
     }
 }

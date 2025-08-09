@@ -17,7 +17,7 @@ class CCTVFootageTest {
             }
         };
 
-        Assertions.assertEquals(transitionPoint, cctvFootage.findTransitionPoint(t1, t2, apiObject));
+        Assertions.assertEquals(transitionPoint, CCTVFootage.findTransitionPoint(t1, t2, apiObject));
     }
 
     @Test()
@@ -37,7 +37,7 @@ class CCTVFootageTest {
                 deck[(j + indexOf1) % 52] = j + 1;
             }
 
-            Assertions.assertEquals((indexOf1 - 1 + 52) % 52, cctvFootage.findDeckCutIndex(deck));
+            Assertions.assertEquals((indexOf1 - 1 + 52) % 52, CCTVFootage.findDeckCutIndex(deck));
         }
     }
 }

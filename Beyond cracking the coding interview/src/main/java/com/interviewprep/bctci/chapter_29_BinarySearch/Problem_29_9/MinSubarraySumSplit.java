@@ -4,7 +4,7 @@ public class MinSubarraySumSplit {
     // arr only has positive integers
     // k is the number of subarrays the array should be split.
     // 1 <= k <= n
-    public int findMinSubarraySplit(int[] arr, int k) {
+    public static int findMinSubarraySplit(int[] arr, int k) {
         int n = arr.length;
         if (k > n) {
             return Integer.MIN_VALUE;
@@ -36,7 +36,7 @@ public class MinSubarraySumSplit {
         return e;
     }
 
-    private boolean isBeforeTransitionPoint(int[] arr, int maxSum, int k) {
+    private static boolean isBeforeTransitionPoint(int[] arr, int maxSum, int k) {
         int partitions = 1;
         int currSubsetSum = 0;
         for (int i = 0; i < arr.length; i++) {

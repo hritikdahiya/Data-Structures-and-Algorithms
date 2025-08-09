@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringUtility {
-    public String[] split(String s, char c) {
+    public static String[] split(String s, char c) {
         if(s == null || s.isEmpty()) {
             return new String[]{};
         }

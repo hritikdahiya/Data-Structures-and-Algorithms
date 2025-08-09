@@ -2,7 +2,7 @@ package com.interviewprep.bctci.chapter_29_BinarySearch.Problem_29_4;
 
 public class TwoArrayTwoSum {
     // Binary Search solution with Transition Point
-    public int[] find2SumIndices(int[] sorted_arr, int[] unsorted_arr) {
+    public static int[] find2SumIndices(int[] sorted_arr, int[] unsorted_arr) {
         if (sorted_arr.length == 0 || unsorted_arr.length == 0) {
             throw new IllegalArgumentException();
         }
