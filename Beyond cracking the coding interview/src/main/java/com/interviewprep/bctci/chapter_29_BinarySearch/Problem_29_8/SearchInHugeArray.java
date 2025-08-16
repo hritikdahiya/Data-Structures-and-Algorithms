@@ -1,8 +1,5 @@
 package com.interviewprep.bctci.chapter_29_BinarySearch.Problem_29_8;
 
-interface API {
-    long fetch(long index);
-}
 public class SearchInHugeArray {
     public static long findElementInArray(API api, long target) {
         long s = 0, e = 1;
