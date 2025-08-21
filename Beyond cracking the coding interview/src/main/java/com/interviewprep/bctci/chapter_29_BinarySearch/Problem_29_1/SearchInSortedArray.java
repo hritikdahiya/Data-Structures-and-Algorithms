@@ -6,25 +6,33 @@ public class SearchInSortedArray {
             return -1;
         }
 
+        // target out of arr's range
+        if(arr[0].compareTo(target) > 0 || arr[arr.length - 1].compareTo(target) < 0) {
+            return -1;
+        }
+
+        // target is at first index
+        if(arr[0].compareTo(target) == 0) {
+            return 0;
+        }
+
         int startIndex = 0, endIndex = arr.length - 1;
-        while (startIndex <= endIndex) {
+        while (endIndex - startIndex > 1) {
             // int overflow conscious way of calculating (startIndex + endIndex)/2
             int midIndex = startIndex + (endIndex - startIndex) / 2;
 
             int compareValue = arr[midIndex].compareTo(target);
-            if (compareValue > 0) {
-                // mid-element is greater than target ==> search the left subarray (searchIndex - (midIndex - 1))
-                endIndex = midIndex - 1;
-            } else if (compareValue < 0) {
-                // mid-element is less than target ==> search the right subarray ((midIndex + 1) - rightIndex]
-                startIndex = midIndex + 1;
+            // midIndex is in before region (i.e. elements at midIndex is strictly less than target)
+            // move startIndex towards mid
+            if (compareValue < 0) {
+                startIndex = midIndex;
             } else {
-                // Found target
-                return midIndex;
+                // move endIndex towards mid
+                endIndex = midIndex;
             }
         }
 
         // if reached here ==> element does not exist
-        return -1;
+        return arr[endIndex].compareTo(target) == 0 ? endIndex : -1;
     }
 }

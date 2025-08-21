@@ -18,20 +18,25 @@ public class TwoArrayTwoSum {
             if (sorted_arr[s] > eleToFind || sorted_arr[e] < eleToFind) {
                 continue;
             }
+            if (sorted_arr[s] == eleToFind) {
+                return new int[]{s, i};
+            }
 
             while (e - s > 1) {
                 // while the ends are not near each other
                 int mid = s + (e - s) / 2;
 
-                if (sorted_arr[mid] == eleToFind) {
-                    return new int[]{mid, i};
-                } else if (sorted_arr[mid] < eleToFind) {
+                if (sorted_arr[mid] < eleToFind) {
                     // search right subarray
                     s = mid;
                 } else {
                     // search left subarray
                     e = mid;
                 }
+            }
+
+            if (sorted_arr[e] == eleToFind) {
+                return new int[]{e, i};
             }
         }
 

@@ -16,24 +16,24 @@ public class ValleyBottom {
             return arr[e];
         }
 
+        // while the ends are not near each other
         while (e - s > 1) {
-            // while the ends are not near each other
             int mid = s + (e - s) / 2;
 
             if (isBefore(arr, mid)) {
-                // If mid is before TP, discard a[s, mid) left subarray
+                // If mid is before TP, mid is in the desc prefix array
                 s = mid;
             } else {
-                // If mid is after TP, discard a(mid, s] right subarray
+                // If mid is after TP, mid is in the asc suffix array
                 e = mid;
             }
         }
 
-        return Math.min(arr[s], arr[e]);
+        return arr[s];
     }
 
     // Is the current element greater than it's previous element i.e. in the desc prefix
     private static boolean isBefore(int[] arr, int index) {
-        return arr[index] < arr[index - 1];
+        return index == 0 || arr[index] < arr[index - 1];
     }
 }

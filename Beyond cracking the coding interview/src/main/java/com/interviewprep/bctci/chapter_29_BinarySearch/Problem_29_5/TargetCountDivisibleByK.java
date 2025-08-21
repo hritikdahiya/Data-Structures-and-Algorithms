@@ -52,7 +52,7 @@ public class TargetCountDivisibleByK {
         if(ele < sorted_arr[0] || ele > sorted_arr[e]) {
             return -1;
         }
-        // If element at the end, it is the last occurence
+        // If element at the end, it is the last occurrence
         if(sorted_arr[e] == ele) {
             return e;
         }

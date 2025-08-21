@@ -14,7 +14,7 @@ class TwoArrayTwoSumTest {
 
     @Test
     public void TwoSumExistsWithDuplicatedValueTest() {
-        int[] sorted_arr = new int[]{-5, -4, -1, 4, 6, 6, 7};
+        int[] sorted_arr = new int[]{-4, -4, -1, 4, 6, 6, 7};
         int[] unsorted_arr = new int[]{-3, 7, 18, 5, -6};
 
         Assertions.assertArrayEquals(new int[]{4, 4}, TwoArrayTwoSum.find2SumIndices(sorted_arr, unsorted_arr));
@@ -23,7 +23,7 @@ class TwoArrayTwoSumTest {
     @Test
     public void TwoSumDoesNotExistsTest() {
         int[] sorted_arr = new int[]{-5, -4, -1, 4, 6, 6, 7};
-        int[] unsorted_arr = new int[]{-3, 7, 18, 5, 6};
+        int[] unsorted_arr = new int[]{-3, 7, 18, 3, 6};
         Assertions.assertArrayEquals(new int[]{-1, -1}, TwoArrayTwoSum.find2SumIndices(sorted_arr, unsorted_arr));
     }
 
