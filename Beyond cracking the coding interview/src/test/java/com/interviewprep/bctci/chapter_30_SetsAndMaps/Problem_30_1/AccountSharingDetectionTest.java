@@ -23,7 +23,7 @@ class AccountSharingDetectionTest {
                 {"292.0.2.5", "mike"},
                 {"203.0.113.15", "bob2"}
         };
-        Assertions.assertEquals("203.0.113.10", AccountSharingDetection.findSharedIP(ipUsernameList));
+        Assertions.assertEquals("292.0.2.5", AccountSharingDetection.findSharedIP(ipUsernameList));
 
         ipUsernameList = new String[][]{
                 {"203.0.113.10", "mike"},
@@ -31,6 +31,6 @@ class AccountSharingDetectionTest {
                 {"292.0.2.5", "mike"},
                 {"203.0.113.15", "bob"}
         };
-        Assertions.assertEquals("203.0.113.10", AccountSharingDetection.findSharedIP(ipUsernameList));
+        Assertions.assertEquals("292.0.2.5", AccountSharingDetection.findSharedIP(ipUsernameList));
     }
 }

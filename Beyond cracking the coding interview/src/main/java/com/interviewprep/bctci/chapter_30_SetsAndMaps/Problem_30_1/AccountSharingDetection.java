@@ -1,20 +1,20 @@
 package com.interviewprep.bctci.chapter_30_SetsAndMaps.Problem_30_1;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AccountSharingDetection {
     public static String findSharedIP(String[][] ipUsernameList) {
-        Map<String, String> userNameIPMap = new HashMap<>();
+        Set<String> usernameSet = new HashSet<>();
 
         for (String[] ipUserNameTuple : ipUsernameList) {
             String ip = ipUserNameTuple[0];
             String username = ipUserNameTuple[1];
 
-            if (userNameIPMap.containsKey(username)) {
-                return userNameIPMap.get(username);
+            if (usernameSet.contains(username)) {
+                return ip;
             } else {
-                userNameIPMap.put(username, ip);
+                usernameSet.add(username);
             }
         }
 
