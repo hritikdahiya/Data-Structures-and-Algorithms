@@ -54,13 +54,13 @@ public class CheaterDetection {
         for (int i = 0; i < n; i++) {
             StudentResult studentResult = studentResults.get(i);
             int neighborDesk = studentResult.desk() + 1;
-            // find the neighbor desk student
-            if (deskToStudentIndexMapping.containsKey(neighborDesk)) {
+            // check if they're in the same row AND if any student was present in that desk
+            if (isSameRow(studentResult.desk(), neighborDesk, desksPerRow) && deskToStudentIndexMapping.containsKey(neighborDesk)) {
                 StudentResult neighborStudentResult = studentResults.get(
                         deskToStudentIndexMapping.get(neighborDesk)
                 );
 
-                // check if they're in the same row and cheated
+                // check for cheating
                 if (isSameRow(studentResult.desk(), neighborStudentResult.desk(), desksPerRow) &&
                         Arrays.compare(studentResult.answers(), neighborStudentResult.answers()) == 0) {
                     suspects.add((new int[]{studentResult.id(), neighborStudentResult.id()}));
