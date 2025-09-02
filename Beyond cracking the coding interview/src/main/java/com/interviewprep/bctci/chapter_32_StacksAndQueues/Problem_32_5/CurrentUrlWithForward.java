@@ -12,10 +12,11 @@ public class CurrentUrlWithForward {
 
         for (Action action : actions) {
             if (action.actionType() == ActionType.GO) {
-                // as soon a go to a url happens, we cannot move forward
+                // as soon a 'go' to a url happens, we cannot move forward
                 forwardStack.clear();
                 historyUrlStack.push(action.url());
             } else if (action.actionType() == ActionType.FORWARD) {
+                // as we move forward, go through the forward tack and add to history
                 int hops = action.hops();
                 while (!forwardStack.isEmpty() && hops > 0) {
                     historyUrlStack.push(forwardStack.pop());
@@ -36,5 +37,28 @@ public class CurrentUrlWithForward {
         }
 
         return historyUrlStack.peek();
+    }
+
+    public static String getCurrentUrlEfficient(Action[] actions) {
+        // max possible values of url - actions.length
+        String[] urls = new String[actions.length];
+        int currentPointer = -1, lastPointer = -1;
+
+        for (Action action : actions) {
+            if (action.actionType() == ActionType.GO) {
+                lastPointer = ++currentPointer;
+                urls[currentPointer] = action.url();
+            } else if (action.actionType() == ActionType.FORWARD) {
+                currentPointer = Math.min(lastPointer, currentPointer + action.hops());
+            } else {
+                currentPointer = Math.max(0, currentPointer - action.hops());
+            }
+        }
+
+        if (currentPointer < 0) {
+            throw new IllegalArgumentException("There were no 'GO' actions to any URL");
+        }
+
+        return urls[currentPointer];
     }
 }

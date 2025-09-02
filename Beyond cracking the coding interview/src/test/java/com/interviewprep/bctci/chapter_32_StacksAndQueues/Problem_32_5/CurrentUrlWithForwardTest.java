@@ -19,5 +19,6 @@ class CurrentUrlWithForwardTest {
                 new Action(ActionType.FORWARD, null, 3),
         };
         Assertions.assertEquals("netflix.com", CurrentUrlWithForward.getCurrentUrl(actions));
+        Assertions.assertEquals("netflix.com", CurrentUrlWithForward.getCurrentUrlEfficient(actions));
     }
 }
