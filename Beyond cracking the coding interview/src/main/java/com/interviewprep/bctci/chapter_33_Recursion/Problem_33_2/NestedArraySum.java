@@ -10,9 +10,7 @@ public class NestedArraySum {
         }
 
         Stack<IntegerOrArray> recursiveStack = new Stack<>();
-        for (IntegerOrArray integerOrArray : nestedArr) {
-            recursiveStack.push(integerOrArray);
-        }
+        recursiveStack.push(new IntegerOrArray(nestedArr));
 
         int sum = 0;
         while (!recursiveStack.empty()) {
