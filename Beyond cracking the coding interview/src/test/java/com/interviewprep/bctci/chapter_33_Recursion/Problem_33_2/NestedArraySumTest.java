@@ -10,11 +10,13 @@ class NestedArraySumTest {
 
         IntegerOrArray[] nestedArray = new IntegerOrArray[]{};
         Assertions.assertEquals(0, NestedArraySum.sum(nestedArray));
+        Assertions.assertEquals(0, NestedArraySum.sumIterative(nestedArray));
 
         nestedArray = new IntegerOrArray[]{
                 new IntegerOrArray(5)
         };
         Assertions.assertEquals(5, NestedArraySum.sum(nestedArray));
+        Assertions.assertEquals(5, NestedArraySum.sumIterative(nestedArray));
 
         nestedArray = new IntegerOrArray[]{
                 new IntegerOrArray(new IntegerOrArray[]{
@@ -29,6 +31,7 @@ class NestedArraySumTest {
                 new IntegerOrArray(4),
         };
         Assertions.assertEquals(10, NestedArraySum.sum(nestedArray));
+        Assertions.assertEquals(10, NestedArraySum.sumIterative(nestedArray));
 
 
         nestedArray = new IntegerOrArray[]{
@@ -46,5 +49,6 @@ class NestedArraySumTest {
                 new IntegerOrArray(6)
         };
         Assertions.assertEquals(21, NestedArraySum.sum(nestedArray));
+        Assertions.assertEquals(21, NestedArraySum.sumIterative(nestedArray));
     }
 }
