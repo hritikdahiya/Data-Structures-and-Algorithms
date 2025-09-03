@@ -10,7 +10,7 @@ public class PowersModM {
         // a^(2b+1) --> a * a^2b
 
         if (exponent % 2 == 1) {
-            // multiplying by 1l to keep the multiplication in long and avoid Integer overflow error
+            //  keep the multiplication in long and avoid Integer overflow error
             return (int) (((long) num * calculate(num, exponent - 1, modulus)) % modulus);
         } else {
             int halfExponentResult = calculate(num, exponent / 2, modulus);
