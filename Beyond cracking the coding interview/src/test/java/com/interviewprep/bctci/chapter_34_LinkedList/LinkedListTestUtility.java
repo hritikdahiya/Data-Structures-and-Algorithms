@@ -25,6 +25,7 @@ public class LinkedListTestUtility {
                 curr = node;
             } else {
                 curr.next = node;
+                node.prev = curr;
                 curr = curr.next;
             }
         }
