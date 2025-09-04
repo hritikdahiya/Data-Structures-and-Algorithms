@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class DoublyLinkedListTest {
 
     @Test
-    public void DoublyLinkedList() {
+    public void doublyLinkedListTest() {
         DoublyLinkedList dll = new DoublyLinkedList();
 
         Assertions.assertEquals(0, dll.size());

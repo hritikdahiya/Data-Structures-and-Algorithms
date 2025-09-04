@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class SinglyLinkedListTest {
 
     @Test
-    public void SinglyLinkedList() {
+    public void singlyLinkedListTest() {
         SinglyLinkedList sll = new SinglyLinkedList();
 
         Assertions.assertEquals(0, sll.size());
