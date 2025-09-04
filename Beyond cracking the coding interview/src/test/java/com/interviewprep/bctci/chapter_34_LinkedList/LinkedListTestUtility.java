@@ -31,4 +31,16 @@ public class LinkedListTestUtility {
 
         return head;
     }
+
+    public static <T> Node<T> getLastNode(Node<T> head) {
+        if (head == null) {
+            return null;
+        }
+        Node<T> curr = head;
+        while (curr.next != null) {
+            curr = curr.next;
+        }
+
+        return curr;
+    }
 }
