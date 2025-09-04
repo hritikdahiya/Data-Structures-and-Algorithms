@@ -1,27 +1,19 @@
 package com.interviewprep.bctci.chapter_34_LinkedList.Problem_34_5;
 
-public class LinkedListCopy {
-    public static Node copy(Node head) {
-        Node dummyNode = new Node(Integer.MIN_VALUE);
+import com.interviewprep.bctci.chapter_34_LinkedList.Node;
 
-        Node newCurr = dummyNode;
-        Node oldHeadCurr = head;
+public class LinkedListCopy {
+    public static <T> Node<T> copy(Node<T> head) {
+        Node<T> dummyNode = new Node<>(null);
+
+        Node<T> newCurr = dummyNode;
+        Node<T> oldHeadCurr = head;
         while (oldHeadCurr != null) {
-            newCurr.next = new Node(oldHeadCurr.val);
+            newCurr.next = new Node<>(oldHeadCurr.val);
             oldHeadCurr = oldHeadCurr.next;
             newCurr = newCurr.next;
         }
 
         return dummyNode.next;
-    }
-}
-
-
-class Node {
-    int val;
-    Node next;
-
-    Node(int val) {
-        this.val = val;
     }
 }

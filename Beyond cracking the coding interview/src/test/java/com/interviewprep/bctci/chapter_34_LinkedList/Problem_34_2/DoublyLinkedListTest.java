@@ -7,7 +7,7 @@ class DoublyLinkedListTest {
 
     @Test
     public void doublyLinkedListTest() {
-        DoublyLinkedList dll = new DoublyLinkedList();
+        DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
 
         Assertions.assertEquals(0, dll.size());
         Assertions.assertNull(dll.popBack());

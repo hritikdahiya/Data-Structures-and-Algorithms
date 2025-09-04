@@ -1,7 +1,9 @@
 package com.interviewprep.bctci.chapter_34_LinkedList.Problem_34_1;
 
-public class SinglyLinkedList {
-    private Node head;
+import com.interviewprep.bctci.chapter_34_LinkedList.Node;
+
+public class SinglyLinkedList<T> {
+    private Node<T> head;
     private int length;
 
     SinglyLinkedList() {
@@ -10,8 +12,8 @@ public class SinglyLinkedList {
     }
 
     // T - O(1)
-    public void pushFront(Integer val) {
-        Node newNode = new Node(val);
+    public void pushFront(T val) {
+        Node<T> newNode = new Node<>(val);
         length++;
 
         newNode.next = head;
@@ -19,7 +21,7 @@ public class SinglyLinkedList {
     }
 
     // T - O(1)
-    public Integer popFront() {
+    public T popFront() {
         if (head == null) {
             // no element in the list
             return null;
@@ -27,20 +29,20 @@ public class SinglyLinkedList {
 
         length--;
 
-        Node oldHead = head;
+        Node<T> oldHead = head;
         head = head.next;       // actual pop operation - move head ahead
         return oldHead.val;
     }
 
     // T - O(n)
-    public void pushBack(Integer val) {
-        Node newNode = new Node(val);
+    public void pushBack(T val) {
+        Node<T> newNode = new Node<>(val);
         length++;
 
         if (head == null) {
             head = newNode;
         } else {
-            Node curr = head;
+            Node<T> curr = head;
             while (curr.next != null) {
                 curr = curr.next;
             }
@@ -49,7 +51,7 @@ public class SinglyLinkedList {
     }
 
     // T - O(n)
-    public Integer popBack() {
+    public T popBack() {
         if (head == null) {
             // no element in the list
             return null;
@@ -59,19 +61,19 @@ public class SinglyLinkedList {
 
         if (head.next == null) {
             // one element in the list
-            Node currHead = head;
+            Node<T> currHead = head;
             head = null;
             return currHead.val;
         }
 
         // > 1 element in the list
-        Node curr = head;
+        Node<T> curr = head;
         while (curr.next != null && curr.next.next != null) {
             curr = curr.next;
         }
 
         // previous now points are the second last element in the list
-        Node nodeToRemove = curr.next;
+        Node<T> nodeToRemove = curr.next;
         curr.next = null;
 
         return nodeToRemove.val;
@@ -83,8 +85,8 @@ public class SinglyLinkedList {
     }
 
     // T - O(n) linear traversal
-    public boolean contains(int v) {
-        Node curr = head;
+    public boolean contains(T v) {
+        Node<T> curr = head;
         while (curr != null) {
             if (curr.val == v) {
                 return true;
@@ -92,15 +94,5 @@ public class SinglyLinkedList {
             curr = curr.next;
         }
         return false;
-    }
-}
-
-class Node {
-    Integer val;
-    Node next;
-
-    Node(Integer val) {
-        this.val = val;
-        this.next = null;
     }
 }

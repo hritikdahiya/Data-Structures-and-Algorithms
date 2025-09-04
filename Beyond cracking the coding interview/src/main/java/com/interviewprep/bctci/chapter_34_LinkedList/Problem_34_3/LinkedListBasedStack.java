@@ -1,5 +1,7 @@
 package com.interviewprep.bctci.chapter_34_LinkedList.Problem_34_3;
 
+import com.interviewprep.bctci.chapter_34_LinkedList.Node;
+
 public class LinkedListBasedStack<T> {
     private Node<T> head;
     private int length;
@@ -39,14 +41,5 @@ public class LinkedListBasedStack<T> {
 
     public boolean empty() {
         return length == 0;
-    }
-}
-
-class Node<T> {
-    T val;
-    Node<T> next;
-
-    Node(T val) {
-        this.val = val;
     }
 }

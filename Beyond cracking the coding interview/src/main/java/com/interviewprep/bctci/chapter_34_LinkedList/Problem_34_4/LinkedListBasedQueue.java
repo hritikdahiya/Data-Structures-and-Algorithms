@@ -1,5 +1,7 @@
 package com.interviewprep.bctci.chapter_34_LinkedList.Problem_34_4;
 
+import com.interviewprep.bctci.chapter_34_LinkedList.Node;
+
 public class LinkedListBasedQueue<T> {
     private Node<T> head;
     private Node<T> tail;
@@ -49,14 +51,5 @@ public class LinkedListBasedQueue<T> {
 
     public boolean empty() {
         return length == 0;
-    }
-}
-
-class Node<T> {
-    T val;
-    Node<T> next;
-
-    Node(T val) {
-        this.val = val;
     }
 }

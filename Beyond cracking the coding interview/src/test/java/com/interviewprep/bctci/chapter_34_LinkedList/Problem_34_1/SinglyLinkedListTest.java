@@ -7,7 +7,7 @@ class SinglyLinkedListTest {
 
     @Test
     public void singlyLinkedListTest() {
-        SinglyLinkedList sll = new SinglyLinkedList();
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
 
         Assertions.assertEquals(0, sll.size());
         Assertions.assertNull(sll.popBack());
