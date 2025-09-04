@@ -7,31 +7,21 @@ import java.util.List;
 
 public class DoublyLinkedListToArray {
     public static <T> List<T> linkedListToArray(Node<T> node) {
-        List<T> prefixList = new ArrayList<>();
-        List<T> suffixList = new ArrayList<>();
-
+        List<T> finalList = new ArrayList<>();
         if (node == null) {
             return new ArrayList<>();
         }
 
-        Node<T> curr = node.prev;
-
-        while (curr != null) {
-            prefixList.add(curr.val);
+        Node<T> curr = node;
+        while (curr.prev != null) {
             curr = curr.prev;
         }
 
-        curr = node;
+        // current at start of the list
         while (curr != null) {
-            suffixList.add(curr.val);
+            finalList.add(curr.val);
             curr = curr.next;
         }
-
-        List<T> finalList = new ArrayList<>();
-        for (int i = prefixList.size() - 1; i > -1; i--) {
-            finalList.add(prefixList.get(i));
-        }
-        finalList.addAll(suffixList);
 
         return finalList;
     }
