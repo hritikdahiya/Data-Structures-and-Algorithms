@@ -2,9 +2,6 @@ package com.interviewprep.bctci.chapter_34_LinkedList.Problem_34_11;
 
 import com.interviewprep.bctci.chapter_34_LinkedList.Node;
 
-// 1->2->3->4
-//          |
-// k = 3
 public class RemoveKthNodeFromEnd {
     public static <T> Node<T> removeInOnePass(Node<T> head, int k) {
         if (k < 1) {
