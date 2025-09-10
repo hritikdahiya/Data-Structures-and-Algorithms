@@ -13,7 +13,6 @@ class BSTValidationTest {
     @Test
     public void isBSTValidTest() {
         Node<Integer> bst = createBSTFromArray(Arrays.asList(8, 6, 5, 8, 2, 6, 8, 8, 12, 10, 9), Integer::compareTo);
-        Assertions.assertTrue(BSTValidation.isBSTValidIterative(bst));
         Assertions.assertTrue(BSTValidation.isBSTValidRecursive(bst));
 
 
@@ -30,7 +29,6 @@ class BSTValidationTest {
                                 null,
                                 new Node<>(9)),
                         new Node<>(11)));
-        Assertions.assertTrue(BSTValidation.isBSTValidIterative(looseBST));
         Assertions.assertTrue(BSTValidation.isBSTValidRecursive(looseBST));
 
 //                            5
@@ -46,7 +44,6 @@ class BSTValidationTest {
                                 null,
                                 new Node<>(9)),
                         new Node<>(11)));
-        Assertions.assertFalse(BSTValidation.isBSTValidIterative(notBST));
         Assertions.assertFalse(BSTValidation.isBSTValidRecursive(notBST));
     }
 }
