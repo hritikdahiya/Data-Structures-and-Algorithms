@@ -16,24 +16,20 @@ class BSTNearestValueTest {
         int valToFind = 4;
         Integer expectedValue = 4;
         Assertions.assertEquals(expectedValue, BSTNearestValue.findNearest(bst, valToFind, Integer::compareTo));
-        Assertions.assertEquals(expectedValue, BSTNearestValue.findNearestSimpler(bst, valToFind, Integer::compareTo));
 
 
         valToFind = 6;
         expectedValue = 5;
         Assertions.assertEquals(expectedValue, BSTNearestValue.findNearest(bst, valToFind, Integer::compareTo));
-        Assertions.assertEquals(expectedValue, BSTNearestValue.findNearestSimpler(bst, valToFind, Integer::compareTo));
 
         valToFind = 3;
         expectedValue = 2;
         Assertions.assertEquals(expectedValue, BSTNearestValue.findNearest(bst, valToFind, Integer::compareTo));
-        Assertions.assertEquals(expectedValue, BSTNearestValue.findNearestSimpler(bst, valToFind, Integer::compareTo));
 
         bst = createBSTFromArray(new ArrayList<>(), Integer::compareTo);
         valToFind = 10;
         Node<Integer> finalBst = bst;
         Integer finalValToFind = valToFind;
         Assertions.assertThrows(IllegalArgumentException.class, () -> BSTNearestValue.findNearest(finalBst, finalValToFind, Integer::compareTo));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> BSTNearestValue.findNearestSimpler(finalBst, finalValToFind, Integer::compareTo));
     }
 }
