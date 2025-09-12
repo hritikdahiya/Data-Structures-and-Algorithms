@@ -6,20 +6,21 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.List.of;
 
 class ReachabilityQueriesTest {
 
     @Test
     public void isReachableTest() {
         List<List<Integer>> graph = asList(
-                List.of(1),
+                of(1),
                 asList(0, 2, 5, 4),
                 asList(1, 4, 5),
-                List.of(6, 7),
+                of(6, 7),
                 asList(5, 2, 1),
                 asList(1, 2, 4),
-                List.of(3),
-                List.of(3)
+                of(3),
+                of(3)
         );
 
         Integer[][] queries = new Integer[][]{
