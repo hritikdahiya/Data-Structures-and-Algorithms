@@ -10,33 +10,43 @@ public class ShortestPathQueries {
             return responses;
         }
 
-        // stores the path for every node from sourceNode
-        Map<Integer, List<Integer>> pathMap = new HashMap<>();
-        pathMap.put(sourceNode, new ArrayList<>());
-        pathMap.get(sourceNode).add(sourceNode);
-
+        Map<Integer, Integer> predecessorMap = new HashMap<>();
+        predecessorMap.put(sourceNode, null);
         Queue<Integer> bfsQueue = new LinkedList<>();
         bfsQueue.add(sourceNode);
 
+        // BFS traversal to populate the predecessor map
         while (!bfsQueue.isEmpty()) {
             int node = bfsQueue.poll();
 
             for (int i = 0; i < graph.get(node).size(); i++) {
                 int neighbor = graph.get(node).get(i);
-                if (!pathMap.containsKey(neighbor)) {
-                    List<Integer> pathTillNode = new ArrayList<>(pathMap.get(node));
-                    pathTillNode.add(neighbor);
-
-                    pathMap.put(neighbor, pathTillNode);
+                if (!predecessorMap.containsKey(neighbor)) {
+                    predecessorMap.put(neighbor, node);
                     bfsQueue.add(neighbor);
                 }
             }
         }
 
         for (int i = 0; i < numOfQueries; i++) {
-            responses[i] = pathMap.getOrDefault(queries[i], new ArrayList<>());
+            int destinationNode = queries[i];
+            List<Integer> path = new ArrayList<>();
+            if (predecessorMap.containsKey(destinationNode)) {
+                path.add(destinationNode);
+            }
+
+            int curr = destinationNode;
+            while (predecessorMap.get(curr) != null) {
+                path.add(predecessorMap.get(curr));
+                curr = predecessorMap.get(curr);
+            }
+
+            Collections.reverse(path);
+
+            responses[i] = path;
         }
 
         return responses;
     }
 }
+
