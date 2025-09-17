@@ -9,23 +9,23 @@ public class DaysUntilAllInfected {
         }
 
         Map<Integer, Integer> distanceMap = new HashMap<>();
-        Queue<Map.Entry<Integer, Integer>> bfsQueue = new LinkedList<>();
+        Queue<Integer> bfsQueue = new LinkedList<>();
         for (Integer infected : infectedNodes) {
-            bfsQueue.add(new AbstractMap.SimpleEntry<>(infected, 0));
+            bfsQueue.add(infected);
             distanceMap.put(infected, 0);
         }
 
         int maxValue = 0;
         while (!bfsQueue.isEmpty()) {
-            Map.Entry<Integer, Integer> entry = bfsQueue.poll();
-            int node = entry.getKey(), day = entry.getValue();
-            maxValue = Math.max(maxValue, day);
+            int node = bfsQueue.poll();
+            int infectionDay = distanceMap.get(node);
+            maxValue = Math.max(maxValue, infectionDay);
 
             for (int i = 0; i < graph.get(node).size(); i++) {
                 int neighbor = graph.get(node).get(i);
                 if (!distanceMap.containsKey(neighbor)) {
-                    distanceMap.put(neighbor, day + 1);
-                    bfsQueue.add(new AbstractMap.SimpleEntry<>(neighbor, day + 1));
+                    distanceMap.put(neighbor, infectionDay + 1);
+                    bfsQueue.add(neighbor);
                 }
             }
         }
