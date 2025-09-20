@@ -33,9 +33,9 @@ public class FirstK {
             if (ele < pivot) {
                 smaller.add(ele);
             } else if (ele > pivot) {
-                greater.add(pivot);
+                greater.add(ele);
             } else {
-                equal.add(pivot);
+                equal.add(ele);
             }
         }
 
