@@ -15,12 +15,6 @@ class SpiralOrderTest {
                 {12, 11, 10, 9, 24}
         };
         int[][] spiralOrder = SpiralOrder.draw(5);
-        for (int[] ints : spiralOrder) {
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
-            }
-            System.out.println();
-        }
         verifyGrid(expectedSpiralOrder, spiralOrder);
 
 
@@ -47,12 +41,6 @@ class SpiralOrderTest {
                 {12, 11, 10, 9, 24}
         };
         int[][] spiralOrder = SpiralOrder.drawReverse(5);
-        for (int[] ints : spiralOrder) {
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
-            }
-            System.out.println();
-        }
         verifyGrid(expectedSpiralOrder, spiralOrder);
 
 
