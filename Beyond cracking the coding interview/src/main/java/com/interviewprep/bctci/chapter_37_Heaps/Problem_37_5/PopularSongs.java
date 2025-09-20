@@ -7,60 +7,44 @@ import java.util.*;
 public class PopularSongs {
     private final Map<String, Integer> songCountMap;
     // stores the highest played n/2 songs
-    private final PriorityQueue<Song> minHeap;
+    private final PriorityQueue<Song> upperMinHeap;
     // stores the least played n/2 songs
-    // INVARIANT - maxHeap will have 1 more element than minHeap if n is odd
-    private final PriorityQueue<Song> maxHeap;
+    // INVARIANT - lowerMaxHeap will have 1 more element than upperMinHeap if n is odd
+    private final PriorityQueue<Song> lowerMaxHeap;
 
     public PopularSongs() {
         songCountMap = new HashMap<>();
-        minHeap = new PriorityQueue<>(Comparator.comparingInt(Song::plays));
-        maxHeap = new PriorityQueue<>(Collections.reverseOrder(Comparator.comparingInt(Song::plays)));
+        upperMinHeap = new PriorityQueue<>(Comparator.comparingInt(Song::plays));
+        lowerMaxHeap = new PriorityQueue<>(Collections.reverseOrder(Comparator.comparingInt(Song::plays)));
     }
 
     public void registerPlays(String title, int playCount) {
         songCountMap.put(title, playCount);
         Song newSong = new Song(title, playCount);
-        int totalCount = maxHeap.size() + minHeap.size();
-        if (totalCount == 0) {
-            // first element
-            maxHeap.add(newSong);
-            return;
+        // add element to the lower is it is empty of the new song is less popular than lowerMaxHeap top
+        if (lowerMaxHeap.isEmpty() || lowerMaxHeap.peek().plays() > playCount) {
+            lowerMaxHeap.add(newSong);
+        }
+        // add element to the upper if it is popular than lowerMapHeap top
+        else {
+            upperMinHeap.add(newSong);
         }
 
-        // odd number of elements till now
-        if (totalCount % 2 == 1) {
-            int medianNumOfPlays = maxHeap.peek().plays();
-            // new element is less popular than median, move median from left to right and add newSong to left
-            // so both heaps have an even number of elements
-            if (playCount < medianNumOfPlays) {
-                minHeap.add(maxHeap.poll());
-                maxHeap.add(newSong);
-            }
-            // mew element is more popular than median, keep median in the left and move newSong to right
-            else {
-                minHeap.add(newSong);
-            }
-        } else {
-            double medianNumOfPlays = avg(maxHeap.peek().plays(), minHeap.peek().plays());
-            // new element is less popular than median, add it to the left
-            // so the Invariant stands
-            if (playCount < medianNumOfPlays) {
-                maxHeap.add(newSong);
-            }
-            // new element is more popular than the median, move element from right to left and add the newSong to the right
-            // to maintain the invariant
-            else {
-                minHeap.add(newSong);
-                maxHeap.add(minHeap.poll());
-            }
+        // if the invariant is violated
+        // lower has 2 or more elements than upper, move one to upper
+        if (lowerMaxHeap.size() > upperMinHeap.size() + 1) {
+            upperMinHeap.add(lowerMaxHeap.poll());
+        }
+        // upper has 1 or more element than lower, move on to lower
+        else if (upperMinHeap.size() > lowerMaxHeap.size()) {
+            lowerMaxHeap.add(upperMinHeap.poll());
         }
     }
 
     public boolean isPopular(String title) {
         if (songCountMap.containsKey(title)) {
             int songPlays = songCountMap.get(title);
-            double median = maxHeap.size() == minHeap.size() ? avg(maxHeap.peek().plays(), minHeap.peek().plays()) : maxHeap.peek().plays();
+            double median = lowerMaxHeap.size() == upperMinHeap.size() ? avg(lowerMaxHeap.peek().plays(), upperMinHeap.peek().plays()) : lowerMaxHeap.peek().plays();
 
             return songPlays > median;
         }
