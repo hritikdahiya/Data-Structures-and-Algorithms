@@ -6,15 +6,17 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
+// S - O(k)
 public class TopSongs {
-    private final int maxSize;
-    private final PriorityQueue<Song> minHeap;
+    protected final int maxSize;
+    protected final PriorityQueue<Song> minHeap;
 
-    TopSongs(int k) {
+    public TopSongs(int k) {
         this.maxSize = k;
         this.minHeap = new PriorityQueue<>(Comparator.comparingInt(Song::plays));
     }
 
+    // T - O(logk)
     public void registerPlays(String songTitle, int playCount) {
         minHeap.add(new Song(songTitle, playCount));
         if (minHeap.size() > maxSize) {
@@ -22,6 +24,7 @@ public class TopSongs {
         }
     }
 
+    // T - O(k)
     public List<String> topK() {
         return minHeap.stream().map(Song::name).toList();
     }
