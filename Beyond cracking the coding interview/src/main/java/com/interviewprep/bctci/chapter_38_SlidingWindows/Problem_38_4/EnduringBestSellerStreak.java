@@ -19,11 +19,10 @@ public class EnduringBestSellerStreak {
                 return true;
             }
 
-            if (Objects.equals(bestSellers[r], bestSellers[l])) {
-                r++;
-            } else {
-                l++;
+            if (!Objects.equals(bestSellers[r], bestSellers[l])) {
+                l = r;
             }
+            r++;
         }
 
         return r - l == k;
