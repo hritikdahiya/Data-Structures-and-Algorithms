@@ -12,8 +12,16 @@ class CountSubarraysWithExactlyKBadDaysTest {
         Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.countReusingAtMostKSolution(sales, k));
         Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.count(sales, k));
 
+        // k = 0 --> only good days combinations
+        sales = new int[]{0, 20, 30, 40, 5, 20, 30};
+        k = 0;
+        expected = 9;
+        Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.countReusingAtMostKSolution(sales, k));
+        Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.count(sales, k));
+
         // 0 bad days
         sales = new int[]{10, 20, 30};
+        k = 1;
         expected = 0;
         Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.countReusingAtMostKSolution(sales, k));
         Assertions.assertEquals(expected, CountSubarraysWithExactlyKBadDays.count(sales, k));

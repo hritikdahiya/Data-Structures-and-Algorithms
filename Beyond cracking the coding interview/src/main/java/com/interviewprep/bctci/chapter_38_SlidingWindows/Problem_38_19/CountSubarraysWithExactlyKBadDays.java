@@ -14,6 +14,20 @@ public class CountSubarraysWithExactlyKBadDays {
     public static int count(int[] sales, int k) {
         int badDays = 0, subArrayCount = 0;
         int l = 0, r = 0;
+
+        // when k == 0, find all the subarrays with good days only
+        if (k == 0) {
+            while (r < sales.length) {
+                if (sales[r] < 10) {
+                    r = l = r + 1;
+                } else {
+                    r += 1;
+                }
+                subArrayCount += (r - l);
+            }
+            return subArrayCount;
+        }
+
         while (true) {
             // good day -> expand window
             if (r < sales.length && sales[r] >= 10) {
