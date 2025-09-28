@@ -28,16 +28,8 @@ public class Thesaurusly {
             return;
         }
 
-        if (!synonyms.containsKey(currWord)) {
-            // ignore empty word
-            sentence.add(currWord);
-            thesauruslyHelper(words, synonyms, currIndex + 1, sentence, allWordCombinations);
-            sentence.remove(sentence.size() - 1);
-            return;
-        }
-
         // replace this word with every synonym possible
-        for (String synonym : synonyms.get(currWord)) {
+        for (String synonym : synonyms.getOrDefault(currWord, List.of(currWord))) {
             sentence.add(synonym);
             thesauruslyHelper(words, synonyms, currIndex + 1, sentence, allWordCombinations);
             sentence.remove(sentence.size() - 1);
