@@ -35,7 +35,7 @@ k = 2
 
 6
 
-The optimal rest stops are: [8, *1*, 2, *3*, 9, 6, *2*, 4].
+The optimal rest stops are: [8, **1**, 2, **3**, 9, 6, **2**, 4].
 
 ## Example 2
 
@@ -48,7 +48,7 @@ k = 3
 
 4
 
-The optimal rest stops are: [8, 1, *2*, 3, 9, 6, *2*, 4].
+The optimal rest stops are: [8, 1, **2**, 3, 9, 6, **2**, 4].
 
 ## Example 3
 
