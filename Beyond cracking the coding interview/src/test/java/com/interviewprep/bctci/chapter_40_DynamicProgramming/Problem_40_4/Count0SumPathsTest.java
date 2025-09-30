@@ -16,6 +16,7 @@ class Count0SumPathsTest {
         };
         int expected = 7;
         Assertions.assertEquals(expected, count0SumPaths.countMemoization(grid));
+        Assertions.assertEquals(expected, count0SumPaths.countTabulation(grid));
 
         grid = new int[][]{
                 new int[]{0, 0},
@@ -23,17 +24,20 @@ class Count0SumPathsTest {
         };
         expected = 3;
         Assertions.assertEquals(expected, count0SumPaths.countMemoization(grid));
+        Assertions.assertEquals(expected, count0SumPaths.countTabulation(grid));
 
         grid = new int[][]{
                 new int[]{1},
         };
         expected = 0;
         Assertions.assertEquals(expected, count0SumPaths.countMemoization(grid));
+        Assertions.assertEquals(expected, count0SumPaths.countTabulation(grid));
 
         grid = new int[][]{
                 new int[]{0},
         };
         expected = 1;
         Assertions.assertEquals(expected, count0SumPaths.countMemoization(grid));
+        Assertions.assertEquals(expected, count0SumPaths.countTabulation(grid));
     }
 }
