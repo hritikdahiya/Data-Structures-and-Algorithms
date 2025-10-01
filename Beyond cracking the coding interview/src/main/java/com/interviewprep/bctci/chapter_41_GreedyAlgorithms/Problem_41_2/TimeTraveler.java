@@ -1,9 +1,10 @@
 package com.interviewprep.bctci.chapter_41_GreedyAlgorithms.Problem_41_2;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class TimeTraveler {
-    public static boolean canReachDestination(int[] jumpingPoints, int k, int maxAging) {
+    public static boolean canReachDestinationWithHeap(int[] jumpingPoints, int k, int maxAging) {
         int n = jumpingPoints.length;
 
         // number of jumps are more than the jumping points (-1 because we're already at the 1st jumping point)
@@ -39,5 +40,23 @@ public class TimeTraveler {
         }
 
         return true;
+    }
+
+    public static boolean canReachDestination(int[] jumpingPoints, int k, int maxAging) {
+        int n = jumpingPoints.length;
+
+        int[] gaps = new int[n - 1];
+        for (int i = 1; i < n; i++) {
+            gaps[i - 1] = jumpingPoints[i] - jumpingPoints[i - 1];
+        }
+
+        Arrays.sort(gaps);
+
+        int naturallyAgingYears = 0;
+        for (int i = 0; i < gaps.length - k; i++) {
+            naturallyAgingYears += gaps[i];
+        }
+
+        return naturallyAgingYears <= maxAging;
     }
 }
