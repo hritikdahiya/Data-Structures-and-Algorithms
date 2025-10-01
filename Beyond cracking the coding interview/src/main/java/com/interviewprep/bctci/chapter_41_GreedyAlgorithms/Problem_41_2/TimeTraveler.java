@@ -21,10 +21,10 @@ public class TimeTraveler {
             minHeap.add(jumpingPoints[i] - jumpingPoints[i - 1]);
         }
 
-        for (int i = k + 2; i < n; i++) {
+        for (int i = k + 1; i < n; i++) {
             int yearDiff = jumpingPoints[i] - jumpingPoints[i - 1];
             // found a larger year that could use a jump (which was used on a smaller year span)
-            if (minHeap.peek() < yearDiff) {
+            if (!minHeap.isEmpty() && minHeap.peek() < yearDiff) {
                 // use natural aging to cover the smaller year span
                 maxAging -= minHeap.poll();
                 // use jump to cover the larger current year diff
@@ -33,7 +33,7 @@ public class TimeTraveler {
                 maxAging -= yearDiff;
             }
 
-            if (maxAging <= 0) {
+            if (maxAging < 0) {
                 return false;
             }
         }
