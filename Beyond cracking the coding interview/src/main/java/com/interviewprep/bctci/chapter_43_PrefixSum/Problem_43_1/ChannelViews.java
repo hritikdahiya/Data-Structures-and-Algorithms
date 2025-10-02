@@ -1,7 +1,7 @@
 package com.interviewprep.bctci.chapter_43_PrefixSum.Problem_43_1;
 
 public class ChannelViews {
-    public int[] getViews(int[] views, int[][] queries) {
+    public static int[] getViews(int[] views, int[][] queries) {
         int n = views.length;
         int[] prefixViews = new int[n + 1];
         for (int i = 0; i < n; i++) {

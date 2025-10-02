@@ -7,14 +7,12 @@ class ChannelViewsTest {
 
     @Test
     public void channelViewsTest() {
-        ChannelViews channelViews = new ChannelViews();
-
         int[] views = new int[]{5};
         int[][] queries = new int[][]{
                 new int[]{0, 0}
         };
         int[] expectedResponses = new int[]{5};
-        Assertions.assertArrayEquals(expectedResponses, channelViews.getViews(views, queries));
+        Assertions.assertArrayEquals(expectedResponses, ChannelViews.getViews(views, queries));
 
 
         views = new int[]{3, 5, 4, 8, 7, 2, 5, 3, 2, 3};
@@ -25,7 +23,7 @@ class ChannelViewsTest {
                 new int[]{3, 3}
         };
         expectedResponses = new int[]{8, 29, 12, 8};
-        Assertions.assertArrayEquals(expectedResponses, channelViews.getViews(views, queries));
+        Assertions.assertArrayEquals(expectedResponses, ChannelViews.getViews(views, queries));
 
     }
 }
