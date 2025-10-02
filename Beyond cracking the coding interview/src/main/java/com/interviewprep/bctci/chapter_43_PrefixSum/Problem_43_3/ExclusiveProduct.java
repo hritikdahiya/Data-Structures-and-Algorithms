@@ -5,21 +5,22 @@ public class ExclusiveProduct {
 
     public static int[] findExclusiveProduct(int[] arr) {
         int n = arr.length;
-        int[] prefixProduct = new int[n + 1];
-        int[] suffixProduct = new int[n + 1];
-
-        prefixProduct[0] = suffixProduct[n] = 1;
+        // inclusive of the current number
+        int[] prefixProduct = new int[n];
+        int[] suffixProduct = new int[n];
 
         for (int i = 0; i < n; i++) {
-            prefixProduct[i + 1] = (prefixProduct[i] * arr[i]) % MODULO;
+            prefixProduct[i] = ((i == 0 ? 1 : prefixProduct[i - 1]) * arr[i]) % MODULO;
         }
         for (int i = n - 1; i >= 0; i--) {
-            suffixProduct[i] = (suffixProduct[i + 1] * arr[i]) % MODULO;
+            suffixProduct[i] = ((i == n - 1 ? 1 : suffixProduct[i + 1]) * arr[i]) % MODULO;
         }
 
         int[] responses = new int[n];
         for (int i = 0; i < n; i++) {
-            responses[i] = (prefixProduct[i] * suffixProduct[i + 1]) % MODULO;
+            responses[i] = (
+                    (i == 0 ? 1 : prefixProduct[i - 1]) *
+                            (i == n - 1 ? 1 : suffixProduct[i + 1])) % MODULO;
         }
 
         return responses;
