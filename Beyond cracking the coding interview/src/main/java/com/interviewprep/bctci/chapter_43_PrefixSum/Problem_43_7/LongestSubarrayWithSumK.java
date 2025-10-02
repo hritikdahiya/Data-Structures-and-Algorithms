@@ -22,7 +22,7 @@ public class LongestSubarrayWithSumK {
         Map<Integer, Integer> prefixSumToIndexMap = new HashMap<>();
         prefixSumToIndexMap.put(0, -1);
 
-        int maxLen = 0;
+        int maxLen = -1;
         for (int i = 0; i < n; i++) {
             if (prefixSumToIndexMap.containsKey(prefixSum[i] - k)) {
                 int lenOfSubArray = i - prefixSumToIndexMap.get(prefixSum[i] - k);
