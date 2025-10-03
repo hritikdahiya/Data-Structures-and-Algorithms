@@ -27,5 +27,12 @@ class DAGDistancesTest {
         float[] expected = new float[]{MAX_VALUE, -6, -16, MAX_VALUE, 0, 14};
         Assertions.assertArrayEquals(expected, DAGDistances.findShortestPathToAllNodesFromSource(graph, start));
 
+        start = 0;
+        expected = new float[]{0, 10, MAX_VALUE, MAX_VALUE, MAX_VALUE, MAX_VALUE};
+        Assertions.assertArrayEquals(expected, DAGDistances.findShortestPathToAllNodesFromSource(graph, start));
+
+        start = 5;
+        expected = new float[]{MAX_VALUE, -20, -30, MAX_VALUE, MAX_VALUE, 0};
+        Assertions.assertArrayEquals(expected, DAGDistances.findShortestPathToAllNodesFromSource(graph, start));
     }
 }
