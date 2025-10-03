@@ -11,7 +11,7 @@ import static java.util.List.of;
 class DAGPathReconstructionTest {
 
     @Test
-    void getShortestPathFromSourceToDestination() {
+    public void getShortestPathFromSourceToDestinationTest() {
         List<List<Edge>> graph = of(
                 of(new Edge(0, 1, 10)),
                 of(),
