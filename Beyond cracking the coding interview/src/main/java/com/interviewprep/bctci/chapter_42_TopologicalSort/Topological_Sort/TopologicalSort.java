@@ -45,4 +45,16 @@ public class TopologicalSort {
 
         return topologicalOrder;
     }
+
+    public static List<Integer> kahnImpl2(List<List<Integer>> dag) {
+        List<List<Edge>> edgeDag = new ArrayList<>();
+        for (int node = 0; node < dag.size(); node++) {
+            edgeDag.add(new ArrayList<>());
+            for (Integer neighbor: dag.get(node)) {
+                edgeDag.get(node).add(new Edge(node, neighbor, 1f));
+            }
+        }
+
+        return kahnImpl(edgeDag);
+    }
 }
