@@ -13,11 +13,11 @@ public class DAGDistances {
     public static float[] findShortestPathToAllNodesFromSource(List<List<Edge>> dag, int start) {
         List<Integer> topologicalOrder = TopologicalSort.kahnImpl(dag);
 
-        int indexOfStart = topologicalOrder.indexOf(start);
         float[] distances = new float[dag.size()];
         Arrays.fill(distances, MAX_VALUE);
         distances[start] = 0;
 
+        int indexOfStart = topologicalOrder.indexOf(start);
         // for every node in the topological ordering
         for (int i = indexOfStart; i < topologicalOrder.size(); i++) {
             int node = topologicalOrder.get(i);
