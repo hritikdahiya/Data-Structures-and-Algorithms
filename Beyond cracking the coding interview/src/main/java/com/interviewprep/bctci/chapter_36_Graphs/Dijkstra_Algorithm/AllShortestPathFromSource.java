@@ -14,7 +14,7 @@ public class AllShortestPathFromSource {
         distanceMap.put(source, 0f);
 
         // holder an array of size 2 -> [node, distanceToNodeFromSource]
-        PriorityQueue<Entry<Integer, Float>> minHeap = new PriorityQueue<>(Comparator.comparingDouble(a -> a.getValue()));
+        PriorityQueue<Entry<Integer, Float>> minHeap = new PriorityQueue<>(Comparator.comparingDouble(Entry::getValue));
         minHeap.add(new SimpleEntry<>(source, 0f));
 
         while (!minHeap.isEmpty()) {

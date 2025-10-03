@@ -45,7 +45,6 @@ class AllShortestPathFromSourceTest {
                 new Edge(3, 4, 5),
                 new Edge(5, 6, 5)
         );
-        source = 0;
         expectedMinDist = Map.ofEntries(
                 new SimpleEntry<>(0, 0f),
                 new SimpleEntry<>(1, 7f),
