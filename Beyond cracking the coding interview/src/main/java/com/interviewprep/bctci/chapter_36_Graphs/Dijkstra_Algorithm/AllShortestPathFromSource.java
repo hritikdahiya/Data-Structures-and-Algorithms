@@ -30,10 +30,10 @@ public class AllShortestPathFromSource {
                 // update the distance from source if it is smaller than existing distance
                 if (dist + weight < distanceMap.getOrDefault(nbrNode, Float.MAX_VALUE)) {
                     distanceMap.put(nbrNode, dist + weight);
-                }
 
-                Entry<Integer, Float> nbrEntry = new SimpleEntry<>(nbrEdge.destinationNode(), dist + weight);
-                minHeap.add(nbrEntry);
+                    Entry<Integer, Float> nbrEntry = new SimpleEntry<>(nbrEdge.destinationNode(), dist + weight);
+                    minHeap.add(nbrEntry);
+                }
             }
         }
 
