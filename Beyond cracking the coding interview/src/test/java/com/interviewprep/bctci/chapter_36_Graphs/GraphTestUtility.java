@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GraphTestUtility {
-    public static List<List<Integer>> undirectedEdgeListToAdjacencyList(int V, List<Integer[]> edgeList, boolean isDirected) {
+    public static List<List<Integer>> edgeListToAdjacencyList(int V, List<Integer[]> edgeList, boolean isDirected) {
         List<List<Integer>> adjacencyList = new ArrayList<>(V);
         for (int i = 0; i < V; i++) {
             adjacencyList.add(new ArrayList<>());
@@ -23,7 +23,7 @@ public class GraphTestUtility {
         return adjacencyList;
     }
 
-    public static <T> Map<T, List<T>> undirectedEdgeListToAdjacencyMap(List<T[]> edgeList, boolean isDirected) {
+    public static <T> Map<T, List<T>> edgeListToAdjacencyMap(List<T[]> edgeList, boolean isDirected) {
         Map<T, List<T>> adjacencyMap = new HashMap<>();
         for (T[] edge : edgeList) {
             T source = edge[0], sink = edge[1];
