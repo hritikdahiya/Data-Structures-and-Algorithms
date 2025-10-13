@@ -19,6 +19,7 @@ public class MinimumSpanningTree {
         }
 
         float sumOfEdges = 0;
+        int edgesIncluded = 0;
         for (Edge edge : edges) {
             int parentSource = disjointSet.find(edge.sourceNode()), parentDestination = disjointSet.find(edge.destinationNode());
 
@@ -29,10 +30,11 @@ public class MinimumSpanningTree {
 
             // include this edge to be a part of the MST
             sumOfEdges += edge.weight();
+            edgesIncluded += 1;
             disjointSet.union(edge.sourceNode(), edge.destinationNode());
         }
 
-        return sumOfEdges;
+        return edgesIncluded == V - 1 ? sumOfEdges : -1;
     }
 
     public static float getSumOfMST_Prim(int V, List<Edge> edges) {
